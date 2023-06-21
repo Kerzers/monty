@@ -72,3 +72,32 @@ void pint(stack_t **stack, unsigned int line_number)
 	}
 	printf("%d\n", (*stack)->n);
 }
+
+/**
+ * pop - removes element from a stack
+ * @stack: the stack
+ * @line_number: the line number we read from in the file
+ */
+
+void pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *current = *stack;
+
+	if (!*stack)
+	{
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	if ((*stack)->next == NULL)
+	{
+		free(*stack);
+		*stack = NULL;
+	}
+	else
+	{
+		*stack = current->next;
+		(current->next)->prev = NULL;
+		free(current);
+	}
+}
