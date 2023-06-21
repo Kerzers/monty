@@ -9,13 +9,20 @@
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new = *stack;
+	int data;
 
 	new = malloc(sizeof(stack_t));
 	if (!new)
 	{
-		dprintf("Error: malloc failed\n");
+		perror("Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
+	if (!atoi(instruct[1]))
+	{
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	data = atoi(instruct[1]);
 	new->n = data;
 	new->prev = NULL;
 	if (!*stack)
@@ -41,6 +48,7 @@ void pal(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current = *stack;
 
+	(void)line_number;
 	while (current)
 	{
 		printf("%d\n", current->n);
@@ -53,11 +61,11 @@ void pal(stack_t **stack, unsigned int line_number)
  *
  *
  */
-void pint(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number)
 {
 	if (!*stack)
 	{
-		dprintf("L%d: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*stack)->n);

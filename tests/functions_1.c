@@ -8,7 +8,9 @@
  */
 void (*get_instruct_funct(char *opcode))(stack_t **, unsigned int)
 {
-	instruction_t instruct[] = {
+	int i = 0;
+
+	instruction_t opcode_instruct[] = {
 		{"push", push},
 		{"pal", pal},
 		{"pint", pint}
@@ -16,9 +18,9 @@ void (*get_instruct_funct(char *opcode))(stack_t **, unsigned int)
 
 	while (i < 3)
 	{
-		if (_strcmp(opcode, insturct[i].opcode) == 0)
-			return (instruct[i].f);
+		if (strcmp(opcode, opcode_instruct[i].opcode) == 0)
+			return (opcode_instruct[i].f);
 		i++;
 	}
 	return (NULL);
-}		
+}

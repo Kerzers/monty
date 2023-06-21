@@ -2,6 +2,12 @@
 #define MONTY_H
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define SIZE 3
+
+extern char *instruct[SIZE];
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -32,8 +38,14 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-
+/* Instructions_function */
 void push(stack_t **stack, unsigned int line_number);
 void pal(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
+
+/* general_functions */
+char **tokenize(char *line);
+void (*get_instruct_funct(char *opcode))(stack_t **, unsigned int);
+
 
 #endif /* MAIN_H */
