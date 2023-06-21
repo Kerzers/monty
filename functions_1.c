@@ -18,10 +18,12 @@ void (*get_instruct_funct(char *opcode))(stack_t **, unsigned int)
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
-		{"sub", sub}
+		{"sub", sub},
+		{"div", division},
+		{"mul", mul}
 	};
 
-	while (i < 10)
+	while (i < 15)
 	{
 		if (strcmp(opcode, opcode_instruct[i].opcode) == 0)
 			return (opcode_instruct[i].f);
