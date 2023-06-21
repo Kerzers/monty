@@ -18,6 +18,7 @@ void (*get_instruct_funct(char *opcode))(stack_t **, unsigned int)
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
+		{"sub", sub}
 	};
 
 	while (i < 10)
