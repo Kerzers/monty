@@ -33,7 +33,7 @@ void (*get_instruct_funct(char *opcode))(stack_t **, unsigned int)
 void free_stack(stack_t *stack)
 {
 	stack_t *temp = NULL;
-	
+
 	while (stack)
 	{
 		temp = stack;

@@ -58,8 +58,9 @@ void pal(stack_t **stack, unsigned int line_number)
 }
 
 /**
- *
- *
+ * pint - prints the stack
+ * @stack: ...
+ * @line_number: ...
  *
  */
 void pint(stack_t **stack, unsigned int line_number)
