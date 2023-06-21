@@ -39,7 +39,7 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/* Instructions_function */
+/* Instructions_functions */
 void push(stack_t **stack, unsigned int line_number);
 void pal(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
@@ -50,6 +50,7 @@ void nop(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
 void division(stack_t **stack, unsigned int line_number);
 void mul(stack_t **stack, unsigned int line_number);
+void mod(stack_t **stack, unsigned int line_number);
 
 /* general_functions */
 char **tokenize(char *line);
