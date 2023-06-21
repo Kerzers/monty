@@ -14,10 +14,11 @@ void (*get_instruct_funct(char *opcode))(stack_t **, unsigned int)
 		{"push", push},
 		{"pall", pal},
 		{"pint", pint},
-		{"pop", pop}
+		{"pop", pop},
+		{"swap", swap}
 	};
 
-	while (i < 4)
+	while (i < 5)
 	{
 		if (strcmp(opcode, opcode_instruct[i].opcode) == 0)
 			return (opcode_instruct[i].f);
@@ -41,4 +42,23 @@ void free_stack(stack_t *stack)
 		stack = stack->next;
 		free(temp);
 	}
+}
+
+/**
+ * stack_len - prints the number of node in a double linked list
+ * @h: head of double linked list
+ *
+ * Return: the number of node
+ */
+size_t stack_len(stack_t *h)
+{
+	size_t count = 0;
+	stack_t *current = h;
+
+	while (current)
+	{
+		count++;
+		current = current->next;
+	}
+	return (count);
 }

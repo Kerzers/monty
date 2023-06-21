@@ -101,3 +101,36 @@ void pop(stack_t **stack, unsigned int line_number)
 		free(current);
 	}
 }
+
+/**
+ * swap - waps the top two elements of the stack.
+ * @stack: the stack
+ * @line_number: the line number we read from in the file
+ */
+
+void swap(stack_t **stack, unsigned int line_number)
+{
+	size_t len = 0;
+	stack_t *top = *stack, *second = NULL, *third = NULL;
+
+	len = stack_len(*stack);
+	if (len < 2)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short", line_number);
+		exit(EXIT_FAILURE);
+	}
+	else
+	{	second = top->next;
+		if (len > 2)
+		{
+			third = second->next;
+			third->prev = top;
+		}
+		second->next = top;
+		second->prev = NULL;
+		*stack = second;
+
+		top->prev = second;
+		top->next = NULL;
+	}
+}

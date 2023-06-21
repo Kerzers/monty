@@ -38,16 +38,20 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
 /* Instructions_function */
 void push(stack_t **stack, unsigned int line_number);
 void pal(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
-void free_stack(stack_t *stack);
+void swap(stack_t **stack, unsigned int line_number);
 
 /* general_functions */
 char **tokenize(char *line);
 void (*get_instruct_funct(char *opcode))(stack_t **, unsigned int);
 
+/* handle_stack */
+size_t stack_len(stack_t *h);
+void free_stack(stack_t *stack);
 
 #endif /* MAIN_H */
