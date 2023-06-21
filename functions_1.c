@@ -16,10 +16,14 @@ void (*get_instruct_funct(char *opcode))(stack_t **, unsigned int)
 		{"pint", pint},
 		{"pop", pop},
 		{"swap", swap},
-		{"add", add}
+		{"add", add},
+		{"nop", nop},
+		{"sub", sub};
+		{"div", div};
+		{"mul", mul}
 	};
 
-	while (i < 6)
+	while (i < 10)
 	{
 		if (strcmp(opcode, opcode_instruct[i].opcode) == 0)
 			return (opcode_instruct[i].f);
