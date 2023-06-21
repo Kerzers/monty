@@ -8,13 +8,9 @@
 
 void add(stack_t **stack, unsigned int line_number)
 {
+	size_t l = stack_len(*stack);
 
-	if (!*stack)
-	{
-		fprintf(stderr, "L%u: can't add, stack empty\n", line_number);
-		exit(EXIT_FAILURE);
-	}
-	if ((*stack)->next == NULL)
+	if (l < 2)
 	{
 		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
 		free_stack(*stack);
