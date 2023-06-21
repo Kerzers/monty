@@ -131,7 +131,10 @@ void swap(stack_t **stack, unsigned int line_number)
 		*stack = second;
 
 		top->prev = second;
-		top->next = NULL;
+		if (len > 2)
+			top->next = third;
+		else
+			top->next = NULL;
 	}
 }
 
