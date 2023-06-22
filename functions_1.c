@@ -22,7 +22,8 @@ void (*get_instruct_funct(char *opcode))(stack_t **, unsigned int)
 		{"div", division},
 		{"mul", mul},
 		{"mod", mod},
-		{"pchar", pchar}
+		{"pchar", pchar},
+		{"pstr", pstr}
 	};
 
 	while (i < 15)

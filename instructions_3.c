@@ -45,7 +45,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
-	
+
 	if ((*stack)->n < 0 || (*stack)->n > 127)
 	{
 		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
@@ -54,5 +54,30 @@ void pchar(stack_t **stack, unsigned int line_number)
 	}
 
 	printf("%c\n", (char)(*stack)->n);
+}
+
+/**
+ * pstr - prints character equvalent of n
+ * @stack: the stack
+ * @line_number: the line number we read from in the file
+ */
+
+void pstr(stack_t **stack, unsigned int line_number)
+{
+
+	stack_t *temp;
+
+	(void)line_number;
+	temp = *stack;
+
+	if (!temp)
+		printf("\n");
+
+	while (temp->n > 0 && temp->n <= 127 && temp)
+	{
+		printf("%c", (char)temp->n);
+		temp = temp->next;
+	}
+	printf("\n");
 }
 
