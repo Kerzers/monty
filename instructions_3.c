@@ -57,7 +57,8 @@ void pchar(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pstr - prints character equvalent of n
+ * pstr - prints the string starting at the top of the stack,
+ * followed by a new line
  * @stack: the stack
  * @line_number: the line number we read from in the file
  */
@@ -80,4 +81,36 @@ void pstr(stack_t **stack, unsigned int line_number)
 	}
 	printf("\n");
 }
+/**
+ * rotl - rotates the stack to the top.
+ * @stack: the stack
+ * @line_number: the line number we read from in the file
+ */
 
+void rotl(stack_t **stack, unsigned int line_number)
+{
+	stack_t *last, *top, *second;
+	size_t len;
+
+	if (stack)
+	{
+		len = stack_len(*stack);
+		if (len == 2)
+			swap(stack, line_number);
+		if (len > 2)
+		{
+			last = *stack;
+			while (last->next)
+				last = last->next;
+			top = *stack;
+			second = top->next;
+			second->prev = NULL;
+			*stack = second;
+
+			top->next = NULL;
+			top->prev = last;
+
+			last->next = top;
+		}
+	}
+}
