@@ -35,7 +35,7 @@ int main(int ac, char **av)
 			continue;
 
 		tokenize(line);
-		if (!instruct[0])
+		if (!instruct[0] || strcmp(instruct[0], "#") == 0)
 			continue;
 		func = get_instruct_funct(instruct[0]);
 		if (func == NULL)
