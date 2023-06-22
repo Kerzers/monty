@@ -24,7 +24,8 @@ void (*get_instruct_funct(char *opcode))(stack_t **, unsigned int)
 		{"mod", mod},
 		{"pchar", pchar},
 		{"pstr", pstr},
-		{"rotl", rotl}
+		{"rotl", rotl},
+		{"rotr", rotr}
 	};
 
 	while (i < 20)
