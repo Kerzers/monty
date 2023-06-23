@@ -28,7 +28,7 @@ void (*get_instruct_funct(char *opcode))(stack_t **, unsigned int)
 		{"rotr", rotr}
 	};
 
-	while (i < 20)
+	while (i < 15)
 	{
 		if (strcmp(opcode, opcode_instruct[i].opcode) == 0)
 			return (opcode_instruct[i].f);
