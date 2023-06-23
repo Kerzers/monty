@@ -17,8 +17,7 @@ void push(stack_t **stack, unsigned int line_number)
 		perror("Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-
-	if (!atoi(instruct[1]) && strcmp(instruct[1], "0") != 0)
+	if (!instruct[1] || (!atoi(instruct[1]) && strcmp(instruct[1], "0") != 0))
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
